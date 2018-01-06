@@ -346,26 +346,26 @@ main()
 		echo Setup done!
 	elif test -e $SETUP2_DONE
 	then
-		echo Starting setup3
+		echo setup3 starts
 		setup3
+		echo setup3 finished
 		cd $CURRENT_DIR
 		touch $SETUP3_DONE
-		echo Finishing setup3
 		echo Reboot your system
 	elif test -e $SETUP1_DONE
 	then
-		echo Starting setup2
+		echo setup2 starts
 		setup2
+		echo setup2 finished
 		cd $CURRENT_DIR
 		touch $SETUP2_DONE
-		echo Finishing setup2
 		echo Reboot your system
 	else
-		echo Starting setup1
+		echo setup1 starts
 		setup1
+		echo setup1 finished
 		cd $CURRENT_DIR
 		touch $SETUP1_DONE
-		echo Finishing setup1
 		echo Reboot your system
 	fi
 }
