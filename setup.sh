@@ -243,9 +243,8 @@ ExecStartPost=/usr/bin/chrt -a --fifo -p 99 $MAINPID'
 	wget https://www.musicpd.org/download/libmpdclient/2/libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	tar Jxf libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	cd libmpdclient-${LIBMPDCLIENT_VER}
-	sudo apt -y install python3-pip cmake
-	sudo pip3 install meson scikit-build
-	sudo pip3 install ninja
+	sudo apt -y install python3-pip ninja-build
+	sudo pip3 install meson
 	CFLAGS="${OPT}" meson . output --prefix="/usr"
 	ninja -C output
 	sudo ninja -C output install
