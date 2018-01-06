@@ -212,6 +212,7 @@ exit 0'
 	# Ref: https://github.com/MusicPlayerDaemon/MPD/blob/master/doc/user.xml
 	sudo wget https://raw.githubusercontent.com/estshorter/raspi-autosetup/master/mpd.conf -O /etc/mpd.conf # Get mpd.conf
 	sudo apt -y install libid3tag0-dev libboost-dev libicu-dev libsystemd-dev
+	
 	mkdir mpd
 	cd mpd
 	wget "https://www.musicpd.org/download/mpd/${MPD_MAJOR_VER}/mpd-${MPD_VER}.tar.xz"
@@ -238,12 +239,13 @@ ExecStartPost=/usr/bin/chrt -a --fifo -p 99 $MAINPID'
 	cd ../../
 
 	# Build libmpdclient
+	sudo apt -y install ninja-build meson 
+
 	mkdir libmpdclient
 	cd libmpdclient
 	wget https://www.musicpd.org/download/libmpdclient/2/libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	tar Jxf libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	cd libmpdclient-${LIBMPDCLIENT_VER}
-	sudo apt -y install ninja-build meson 
 	CFLAGS="${OPT}" meson . output --prefix="/usr"
 	ninja -C output
 	sudo ninja -C output install
@@ -252,9 +254,10 @@ ExecStartPost=/usr/bin/chrt -a --fifo -p 99 $MAINPID'
 
 	## Build curl
 	# Ref: https://qiita.com/kb10uy/items/976a52f687bcb7745fc7
+	sudo apt -y install libssl-dev
+
 	mkdir curl
 	cd curl
-	sudo apt -y install libssl-dev
 	wget https://curl.haxx.se/download/curl-${CURL_VER}.tar.bz2
 	tar xf curl-${CURL_VER}.tar.bz2
 	cd curl-${CURL_VER}
