@@ -96,11 +96,11 @@ setup3()
 	sudo sed -ie '$ a dtoverlay=pi3-disable-wifi' /boot/config.txt # Disable Wi-Fi
 	sudo sed -ie '$ a dtoverlay=pi3-disable-bt' /boot/config.txt # Disable Bluetooth
 	sudo sed -ie '$ a disable_splash=1' /boot/config.txt # Disable splash screen
-	# Disable red led
+	# Disable the red led after startup
 	sudo sed -i 's/^exit 0$//g' /etc/rc.local
 	LED_CMD='echo none | sudo tee /sys/class/leds/led1/trigger > /dev/null
-	echo 0 | sudo tee /sys/class/leds/led1/brightness > /dev/null
-	exit 0'
+echo 0 | sudo tee /sys/class/leds/led1/brightness > /dev/null
+exit 0'
 	echo "$LED_CMD" | sudo tee /etc/rc.local -a > /dev/null
 
 	# Disable UART
@@ -181,8 +181,7 @@ setup3()
 	wget http://ffmpeg.org/releases/${FFMPEG_FILE_NAME}.tar.xz
 	tar -Jxf ${FFMPEG_FILE_NAME}.tar.xz
 	cd ${FFMPEG_FILE_NAME}
-	./configure --enable-shared --optflags="${OPT}" --arch=armv8-a ${FFMPEG_OPTIONS}
-	# --cpu is not specified as it generates warnings
+	./configure --enable-shared --optflags="${OPT}" --arch=armv8-a ${FFMPEG_OPTIONS} # --cpu is not specified as it generates warnings
 	make -j4
 	sudo make install
 	sudo ldconfig
@@ -206,27 +205,19 @@ setup3()
 	sudo mkdir -p /mnt/nas
 	sudo ln -s /mnt/nas /var/lib/mpd/music/.
 	sudo sed -ie "$ a //${NAS_ADDR} /mnt/nas cifs vers=3.0,credentials=/etc/naspasswd,noserverino,iocharset=utf8,ro,defaults 0 0" /etc/fstab
-	sudo raspi-config nonint do_boot_wait 0 #enable wait boot
+	sudo raspi-config nonint do_boot_wait 0 # Enable wait boot
 
 	# Build MPD
 	# Ref: http://nw-electric.way-nifty.com/blog/2016/08/mpdpi-2-pi-3-5a.html
 	# Ref: https://github.com/MusicPlayerDaemon/MPD/blob/master/doc/user.xml
 	sudo wget https://raw.githubusercontent.com/estshorter/raspi-autosetup/master/mpd.conf -O /etc/mpd.conf # Get mpd.conf
-	sudo apt -y install \
-		libid3tag0-dev \
-		libboost-dev \
-		libicu-dev \
-		libsystemd-dev 
-
+	sudo apt -y install libid3tag0-dev libboost-dev libicu-dev libsystemd-dev
 	mkdir mpd
 	cd mpd
 	wget "https://www.musicpd.org/download/mpd/${MPD_MAJOR_VER}/mpd-${MPD_VER}.tar.xz"
 	tar -Jxf "mpd-${MPD_VER}.tar.xz"
 	cd "./mpd-${MPD_VER}"
-	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" \
-		--disable-dsd \
-		--disable-libmpdclient --disable-curl \
-		--with-systemdsystemunitdir=/lib/systemd/system
+	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" --disable-dsd --disable-libmpdclient --disable-curl --with-systemdsystemunitdir=/lib/systemd/system
 	make -j4
 	strip src/mpd
 	sudo make install
