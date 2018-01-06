@@ -42,11 +42,9 @@ Download files:
 ```bash
 mkdir ~/setup
 cd ~/setup
-wget https://gist.githubusercontent.com/estshorter/302449b697c1468bcfdb0bf31ed3b35e/raw -O ./setup.sh
+wget https://raw.githubusercontent.com/estshorter/raspi-autosetup/master/setup.sh -O ./setup.sh
 chmod u+x ./setup.sh
 ```
-File urls:
-- raspi-autosetup.sh: https://gist.github.com/estshorter/302449b697c1468bcfdb0bf31ed3b35e
 
 Execute all scripts:
 
@@ -104,7 +102,7 @@ For SD card
 - Ref: https://github.com/raspberrypi/linux/blob/rpi-4.9.y/arch/arm/boot/dts/overlays/README
 - Ref: http://community.phileweb.com/mypage/entry/4787/20171105/57539/
 
-## Use the latest kernel
+## Install the latest kernel
 `sudo rpi-update`
 
 ## Install upmpdcli

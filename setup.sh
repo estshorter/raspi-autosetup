@@ -211,7 +211,7 @@ setup3()
 	# Build MPD
 	# Ref: http://nw-electric.way-nifty.com/blog/2016/08/mpdpi-2-pi-3-5a.html
 	# Ref: https://github.com/MusicPlayerDaemon/MPD/blob/master/doc/user.xml
-	sudo wget https://gist.githubusercontent.com/estshorter/9251f4bb033cab4793c2d1ae07727e78/raw/ -O /etc/mpd.conf # Get mpd.conf
+	sudo wget https://raw.githubusercontent.com/estshorter/raspi-autosetup/master/mpd.conf -O /etc/mpd.conf # Get mpd.conf
 	sudo apt -y install \
 		libid3tag0-dev \
 		libboost-dev \
