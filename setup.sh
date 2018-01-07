@@ -11,6 +11,7 @@ MPG123_VER=1.25.8
 FFMPEG_VER=3.4.1
 
 LIBMPDCLIENT_VER=2.13
+OPENSSL_VER=1.1.0g
 CURL_VER=7.57.0
 MPDAS_VER=0.4.4
 
@@ -256,9 +257,20 @@ ExecStartPost=/usr/bin/chrt -a --fifo -p 99 $MAINPID'
 	sudo ldconfig
 	cd ../../
 
+	# Build openssl
+	mkdir openssl
+	cd openssl
+	wget https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz
+	tar xf openssl-${OPENSSL_VER}.tar.gz
+	cd openssl-${OPENSSL_VER}
+	./config zlib shared no-ssl3
+	make -j4
+	sudo make install
+	cd ../../
+
 	## Build curl
 	# Ref: https://qiita.com/kb10uy/items/976a52f687bcb7745fc7
-	sudo apt -y install libssl-dev
+	# sudo apt -y install libssl-dev
 
 	mkdir curl
 	cd curl
