@@ -30,6 +30,9 @@ setup1()
 }
 setup2()
 {
+	# Make commit interval long
+	# Ref: https://iot-plus.net/make/raspi/extend-sdcard-lifetime-5plus1/
+	sed 's/ext4    defaults,noatime/ext4    defaults,noatime,commit=290/' /etc/fstab
 	# Suppress rsyslog output
 	# Ref: https://azriton.github.io/2017/03/16/Raspbian-Jessie-Lite%E3%81%AESD%E3%82%AB%E3%83%BC%E3%83%89%E5%BB%B6%E5%91%BD%E5%8C%96/
 	# Ref: https://qiita.com/mashumashu/items/bbc3a79bc779fe8c4f99
