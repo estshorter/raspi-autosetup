@@ -113,7 +113,7 @@ exit 0'
 	# Ref: https://github.com/raspberrypi-ui/rc_gui/blob/master/src/rc_gui.c#L23-L70
 	sudo raspi-config nonint do_serial 1
 	sudo sed -i 's/^dtparam=audio=on//g' /boot/config.txt # Disable onboard audio
-	sudo sed -ie '$ a dtoverlay=hifiberry-dacplus' /boot/config.txt # I2s dac on
+	sudo sed -ie '$ a dtoverlay=hifiberry-dacplus' /boot/config.txt # Enable I2S DAC
 	# Specify japanese-lang
 	sudo sed -i 's/^# ja_JP.EUC-JP EUC-JP/ja_JP.EUC-JP EUC-JP/g' /etc/locale.gen 
 	sudo sed -i 's/^# ja_JP.UTF-8 UTF-8/ja_JP.UTF-8 UTF-8/g' /etc/locale.gen
