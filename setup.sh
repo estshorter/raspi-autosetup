@@ -357,6 +357,8 @@ WantedBy=multi-user.target'
 
 	# Delete input log
 	history -c
+	
+	sudo apt clean
 
 	echo Reboot your system
 }
