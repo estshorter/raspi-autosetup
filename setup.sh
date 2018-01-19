@@ -356,7 +356,7 @@ WantedBy=multi-user.target'
 	sed -i 's/^#alias la='\''ls -A'\''/alias la='\''ls -A'\''/g' ~/.bashrc
 
 	# Delete input log
-	rm ~/.bash_history
+	history -c
 
 	echo Reboot your system
 }
