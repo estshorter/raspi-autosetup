@@ -129,8 +129,9 @@ exit 0'
 	# Enable hardware random-number-generator
 	sudo apt -y install rng-tools
 
-	# Install vim (not vim-tiny)
+	# Install vim
 	sudo apt -y install vim
+	sudo apt -y purge vim-tiny
 	
 	# Specify the path folder
 	sudo sed -i '1i/usr/local/lib' /etc/ld.so.conf
