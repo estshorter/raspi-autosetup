@@ -12,7 +12,7 @@ FFMPEG_VER=3.4.1
 
 LIBMPDCLIENT_VER=2.13
 OPENSSL_VER=1.1.0g
-CURL_VER=7.57.0
+CURL_VER=7.58.0
 MPDAS_VER=0.4.4
 
 # Optimization option for Raspberry Pi 3
