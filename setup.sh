@@ -2,7 +2,7 @@
 
 # Specify software version
 MPD_MAJOR_VER=0.20
-MPD_MINOR_VER=.15
+MPD_MINOR_VER=.16
 MPD_VER="${MPD_MAJOR_VER}${MPD_MINOR_VER}"
 
 ALSA_VER=1.1.5
