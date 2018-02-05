@@ -13,7 +13,7 @@ FFMPEG_VER=3.4.1
 LIBMPDCLIENT_VER=2.13
 OPENSSL_VER=1.1.0g
 CURL_VER=7.58.0
-MPDAS_VER=0.4.4
+MPDAS_VER=0.4.5
 
 # Optimization option for Raspberry Pi 3
 OPT="-O2 -march=armv8-a -mtune=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard -ffast-math -ftree-vectorize -funsafe-math-optimizations"
