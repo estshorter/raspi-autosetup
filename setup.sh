@@ -288,12 +288,12 @@ ExecStartPost=/usr/bin/chrt -a --fifo -p 99 $MAINPID'
 	#sudo apt -y install libcurl4-gnutls-dev libmpdclient-dev
 	mkdir mpdas
 	cd mpdas
-	#wget https://github.com/hrkfdn/mpdas/archive/${MPDAS_VER}.tar.gz
-	#tar -zxf ${MPDAS_VER}.tar.gz
-	#cd mpdas-${MPDAS_VER}
-	wget https://github.com/hrkfdn/mpdas/archive/master.zip
-	unzip master.zip
-	cd mpdas-master	
+	wget https://github.com/hrkfdn/mpdas/archive/${MPDAS_VER}.tar.gz
+	tar -zxf ${MPDAS_VER}.tar.gz
+	cd mpdas-${MPDAS_VER}
+	#wget https://github.com/hrkfdn/mpdas/archive/master.zip
+	#unzip master.zip
+	#cd mpdas-master	
 	CXXFLAGS="${OPT}" make -j4
 	strip mpdas
 	sudo make install
