@@ -240,7 +240,7 @@ exit 0'
 	cd "./mpd-${MPD_VER}"
 	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" --disable-dsd --disable-libmpdclient --disable-curl --with-systemdsystemunitdir=/lib/systemd/system
 	make -j4
-	strip src/mpd
+	strip --strip-unneeded src/mpd
 	sudo make install
 	sudo sed -i 's:--no-daemon:--no-daemon /etc/mpd.conf:' /lib/systemd/system/mpd.service 
 	# Change owner of /var/run/mpd when starting mpd
