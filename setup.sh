@@ -179,6 +179,7 @@ exit 0'
 	cd ../../
 	
 	# Build FDK-AAC
+	# Ref: http://nw-electric.way-nifty.com/blog/2018/02/aacmpd-fdk-aac-.html#more
 	mkdir fdk-aac
 	cd fdk-aac
 	wget "https://ja.osdn.net/frs/g_redir.php?m=kent&f=opencore-amr%2Ffdk-aac%2Ffdk-aac-${FDK_AAC_VER}.tar.gz" -O fdk-aac-${FDK_AAC_VER}.tar.gz
