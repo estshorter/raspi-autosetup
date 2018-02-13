@@ -201,7 +201,7 @@ exit 0'
 	wget http://ffmpeg.org/releases/${FFMPEG_FILE_NAME}.tar.xz
 	tar -Jxf ${FFMPEG_FILE_NAME}.tar.xz
 	cd ${FFMPEG_FILE_NAME}
-	./configure --enable-shared --enable-libfdk-aac --optflags="${OPT}" --arch=armv8-a ${FFMPEG_OPTIONS} # --cpu is not specified as it generates warnings
+	./configure --enable-shared --enable-libfdk-aac -disable-decoder=aac --disable-decoder=aac_fixed --disable-decoder=aac-latm --optflags="${OPT}" --arch=armv8-a ${FFMPEG_OPTIONS} # --cpu is not specified as it generates warnings
 	make -j4
 	sudo make install
 	sudo ldconfig
