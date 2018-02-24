@@ -249,7 +249,7 @@ exit 0'
 	# Ref: http://community.phileweb.com/mypage/entry/4787/201704/55263/
 	MPD_INIT_CMD='PermissionsStartOnly=true
 ExecStartPre=/bin/chown -R mpd:audio /var/run/mpd
-ExecStartPost=/usr/bin/chrt -a --fifo -p 99 $MAINPID'
+#ExecStartPost=/usr/bin/chrt -a --fifo -p 99 $MAINPID'
 
 	echo "$MPD_INIT_CMD" | sudo sed -ie '/\[Service\]/r /dev/stdin' /lib/systemd/system/mpd.service
 
