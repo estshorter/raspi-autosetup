@@ -109,6 +109,14 @@ setup3()
 #exit 0'
 	#echo "$LED_CMD" | sudo tee /etc/rc.local -a > /dev/null
 
+	# Disable the red and green led
+	# Ref: https://azriton.github.io/2017/09/20/Raspberry-Pi%E5%9F%BA%E7%9B%A4%E3%81%AELED%E3%82%92%E6%B6%88%E7%81%AF%E3%81%99%E3%82%8B/
+	GREEN_LED_CMD="dtparam=act_led_trigger=none
+dtoverlay=pi3-act-led,activelow=on"
+
+	echo "${GREEN_LED_CMD}" | sudo tee -a /boot/config.txt > /dev/null
+	echo "dtparam=pwr_led_trigger=none,pwr_led_activelow=on" | sudo tee -a /boot/config.txt > /dev/null
+
 	# Disable UART
 	# Ref: https://qiita.com/mt08/items/d27085ac469a34526f72
 	# Ref: https://github.com/raspberrypi-ui/rc_gui/blob/master/src/rc_gui.c#L23-L70
