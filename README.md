@@ -26,7 +26,6 @@ Use [etcher](https://etcher.io/)
 ## Setting overview
 The following are configured automatically.
 - **Build the latest alsa-lib, libflac, mpg123, FFmpeg and MPD with optimization options for Raspberry Pi 3**
-- **Specify high priority to MPD tasks**
 - Turn off the power led after initialization
 - Provide cover art via http using nginx
 - Scrobble to last.fm using mpdas
