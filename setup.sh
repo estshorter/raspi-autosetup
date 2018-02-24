@@ -103,11 +103,11 @@ setup3()
 	sudo sed -ie '$ a dtoverlay=pi3-disable-bt' /boot/config.txt # Disable Bluetooth
 	sudo sed -ie '$ a disable_splash=1' /boot/config.txt # Disable splash screen
 	# Disable the red led after startup
-	sudo sed -i 's/^exit 0$//g' /etc/rc.local
-	LED_CMD='echo none | sudo tee /sys/class/leds/led1/trigger > /dev/null
-echo 0 | sudo tee /sys/class/leds/led1/brightness > /dev/null
-exit 0'
-	echo "$LED_CMD" | sudo tee /etc/rc.local -a > /dev/null
+	#sudo sed -i 's/^exit 0$//g' /etc/rc.local
+	#LED_CMD='echo none | sudo tee /sys/class/leds/led1/trigger > /dev/null
+#echo 0 | sudo tee /sys/class/leds/led1/brightness > /dev/null
+#exit 0'
+	#echo "$LED_CMD" | sudo tee /etc/rc.local -a > /dev/null
 
 	# Disable UART
 	# Ref: https://qiita.com/mt08/items/d27085ac469a34526f72
