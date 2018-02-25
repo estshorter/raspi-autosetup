@@ -247,7 +247,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	wget "https://www.musicpd.org/download/mpd/${MPD_MAJOR_VER}/mpd-${MPD_VER}.tar.xz"
 	tar -Jxf "mpd-${MPD_VER}.tar.xz"
 	cd "./mpd-${MPD_VER}"
-	MPD_OPTIONS="--disable-oss --disable-ipv6 --disable-dsd --disable-libmpdclient --disable-curl --with-systemdsystemunitdir=/lib/systemd/system"
+	MPD_OPTIONS="--disable-un --disable-fifo --disable-httpd-output --disable-recorder-output --disable-oss --disable-ipv6 --disable-dsd --disable-libmpdclient --disable-curl --with-systemdsystemunitdir=/lib/systemd/system"
 	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" ${MPD_OPTIONS}
 	make -j4
 	strip --strip-unneeded src/mpd
