@@ -239,7 +239,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	# Build MPD
 	# Ref: http://nw-electric.way-nifty.com/blog/2016/08/mpdpi-2-pi-3-5a.html
 	# Ref: https://github.com/MusicPlayerDaemon/MPD/blob/master/doc/user.xml
-	sudo wget https://raw.githubusercontent.com/estshorter/raspi-autosetup/master/mpd.conf -O /etc/mpd.conf # Get mpd.conf
+	sudo wget https://raw.githubusercontent.com/estshorter/raspi-autosetup/master/mpd.conf -O /usr/local/etc/mpd.conf # Get mpd.conf
 	sudo apt -y install libid3tag0-dev libboost-dev libicu-dev libsystemd-dev
 	
 	mkdir mpd
@@ -250,9 +250,8 @@ dtoverlay=pi3-act-led,activelow=on"
 	MPD_OPTIONS="--disable-un --disable-fifo --disable-httpd-output --disable-recorder-output --disable-oss --disable-ipv6 --disable-dsd --disable-libmpdclient --disable-curl --with-systemdsystemunitdir=/lib/systemd/system"
 	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" ${MPD_OPTIONS}
 	make -j4
-	strip --strip-unneeded src/mpd
+	strip ./src/mpd
 	sudo make install
-	sudo sed -i 's:--no-daemon:--no-daemon /etc/mpd.conf:' /lib/systemd/system/mpd.service 
 	# Change owner of /var/run/mpd when starting mpd
 	# Specify high priority to MPD tasks
 	# Ref: https://qiita.com/s-yama/items/2d6d7964ac39b08d925e
