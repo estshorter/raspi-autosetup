@@ -275,7 +275,7 @@ ExecStartPre=/bin/chown -R mpd:audio /var/run/mpd
 	wget https://www.musicpd.org/download/libmpdclient/2/libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	tar Jxf libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	cd libmpdclient-${LIBMPDCLIENT_VER}
-	CFLAGS="${OPT}" meson . output --prefix="/usr"
+	CFLAGS="${OPT}" meson . output
 	ninja -C output
 	sudo ninja -C output install
 	sudo ldconfig
