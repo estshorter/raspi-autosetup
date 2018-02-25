@@ -144,6 +144,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	sudo apt -y purge vim-tiny
 	
 	# Specify the path folder
+	sudo sed -i '1i/usr/local/lib/arm-linux-gnueabihf' /etc/ld.so.conf
 	sudo sed -i '1i/usr/local/lib' /etc/ld.so.conf
 
 	# Build alsa-lib
