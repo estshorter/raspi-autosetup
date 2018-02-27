@@ -156,7 +156,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	wget ftp://ftp.alsa-project.org/pub/lib/${ALSA_FILE_NAME}.tar.bz2
 	tar -jxf ${ALSA_FILE_NAME}.tar.bz2
 	cd ${ALSA_FILE_NAME}
-	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}"
+	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" --prefix=/usr/local
 	make -j4
 	sudo make install
 	sudo ldconfig
