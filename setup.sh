@@ -234,7 +234,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	sudo chmod 0600 /etc/naspasswd
 	sudo mkdir -p /mnt/nas
 	sudo ln -s /mnt/nas /var/lib/mpd/music/.
-	sudo sed -ie "$ a //${NAS_ADDR} /mnt/nas cifs vers=3.0,credentials=/etc/naspasswd,noserverino,iocharset=utf8,ro,defaults 0 0" /etc/fstab
+	sudo sed -ie "$ a //${NAS_ADDR} /mnt/nas cifs vers=1.0,credentials=/etc/naspasswd,noserverino,iocharset=utf8,ro,defaults 0 0" /etc/fstab
 	sudo raspi-config nonint do_boot_wait 0 # Enable wait boot
 
 	# Build MPD
