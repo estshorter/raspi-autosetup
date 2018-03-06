@@ -192,7 +192,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	# Ref: http://nw-electric.way-nifty.com/blog/2018/02/aacmpd-fdk-aac-.html#more
 	mkdir fdk-aac
 	cd fdk-aac
-	wget "https://ja.osdn.net/frs/g_redir.php?m=kent&f=opencore-amr%2Ffdk-aac%2Ffdk-aac-${FDK_AAC_VER}.tar.gz" -O fdk-aac-${FDK_AAC_VER}.tar.gz
+	wget "https://downloads.sourceforge.net/project/opencore-amr/fdk-aac/fdk-aac-${FDK_AAC_VER}.tar.gz?r=https%3A%2F%2Fsourceforge.net%2Fprojects%2Fopencore-amr%2Ffiles%2Ffdk-aac%2Ffdk-aac-${FDK_AAC_VER}.tar.gz%2Fdownload&ts=1520338440" -O fdk-aac-${FDK_AAC_VER}.tar.gz
 	tar xf fdk-aac-${FDK_AAC_VER}.tar.gz
 	cd fdk-aac-${FDK_AAC_VER}
 	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}"
