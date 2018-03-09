@@ -154,7 +154,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	mkdir alsa-lib
 	cd alsa-lib
 	wget ftp://ftp.alsa-project.org/pub/lib/${ALSA_FILE_NAME}.tar.bz2
-	tar -jxf ${ALSA_FILE_NAME}.tar.bz2
+	tar xf ${ALSA_FILE_NAME}.tar.bz2
 	cd ${ALSA_FILE_NAME}
 	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" --prefix=/usr/local
 	make -j4
@@ -167,7 +167,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	mkdir libflac
 	cd libflac
 	wget https://ftp.osuosl.org/pub/xiph/releases/flac/${FLAC_FILE_NAME}.tar.xz
-	tar -Jxf ${FLAC_FILE_NAME}.tar.xz
+	tar xf ${FLAC_FILE_NAME}.tar.xz
 	cd ${FLAC_FILE_NAME}
 	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}"
 	make -j4
@@ -180,7 +180,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	mkdir mpg123
 	cd mpg123
 	wget https://www.mpg123.de/download/${MPG123_FILE_NAME}.tar.bz2
-	tar -jxf ${MPG123_FILE_NAME}.tar.bz2
+	tar xf ${MPG123_FILE_NAME}.tar.bz2
 	cd ${MPG123_FILE_NAME}
 	./configure CFLAGS="${OPT}" --with-cpu=neon --with-optimization=2
 	make -j4
@@ -209,7 +209,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	mkdir ffmpeg
 	cd ffmpeg
 	wget http://ffmpeg.org/releases/${FFMPEG_FILE_NAME}.tar.xz
-	tar -Jxf ${FFMPEG_FILE_NAME}.tar.xz
+	tar xf ${FFMPEG_FILE_NAME}.tar.xz
 	cd ${FFMPEG_FILE_NAME}
 	./configure --enable-shared --enable-libfdk-aac --disable-decoder=aac --disable-decoder=aac_fixed --disable-decoder=aac_latm --optflags="${OPT}" --arch=armv8-a ${FFMPEG_OPTIONS} # --cpu is not specified as it generates warnings
 	make -j4
@@ -246,7 +246,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	mkdir mpd
 	cd mpd
 	wget "https://www.musicpd.org/download/mpd/${MPD_MAJOR_VER}/mpd-${MPD_VER}.tar.xz"
-	tar -Jxf "mpd-${MPD_VER}.tar.xz"
+	tar xf "mpd-${MPD_VER}.tar.xz"
 	cd "./mpd-${MPD_VER}"
 	MPD_OPTIONS="--disable-un --disable-fifo --disable-httpd-output --disable-recorder-output --disable-oss --disable-ipv6 --disable-dsd --disable-libmpdclient --disable-curl --with-systemdsystemunitdir=/lib/systemd/system"
 	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" ${MPD_OPTIONS}
@@ -313,7 +313,7 @@ ExecStartPre=/bin/chown -R mpd:audio /var/run/mpd
 	mkdir mpdas
 	cd mpdas
 	wget https://github.com/hrkfdn/mpdas/archive/${MPDAS_VER}.tar.gz
-	tar -zxf ${MPDAS_VER}.tar.gz
+	tar xf ${MPDAS_VER}.tar.gz
 	cd mpdas-${MPDAS_VER}
 	#wget https://github.com/hrkfdn/mpdas/archive/master.zip
 	#unzip master.zip
