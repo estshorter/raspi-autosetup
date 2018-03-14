@@ -26,7 +26,7 @@ Use [etcher](https://etcher.io/)
 ## Setting overview
 The following are configured automatically.
 - **Build the latest alsa-lib, libflac, mpg123, FFmpeg and MPD with optimization options for Raspberry Pi 3**
-- Build FDK-AAC, libmpdclient, OpenSSL, cURL, mpdas and hub-ctrl
+- Build FDK-AAC, libmpdclient, mpdas and hub-ctrl
 - Provide cover art via http using nginx
 - Scrobble to last.fm using mpdas
 - Disable swap, HDMI, Wi-Fi, Bluetooth, UART, onboard audio, usb-power and unnecessary service
