@@ -335,7 +335,8 @@ After=mpd.service
 [Service]
 ExecStart=/usr/local/bin/mpdas
 Type=simple
-StandardOutput=null # Suppress log
+# Suppress log
+StandardOutput=null 
 [Install]
 WantedBy=multi-user.target'
 
