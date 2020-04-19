@@ -1,6 +1,6 @@
 # Assumption
 - Raspberry Pi 3 only (due to optimization option)
-- OS: Raspbian stretch (2018-3-13)
+- OS: Raspbian buster
 - Music format: mp3, m4a, flac (no dsd)
 - Play music stored in a NAS via wired lan (no usb)
 - Scrobble to last.fm
