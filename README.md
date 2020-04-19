@@ -15,7 +15,7 @@ Mirror on Japan
 - https://www.raspbian.org/RaspbianMirrors
 
 # Write image
-Use [etcher](https://etcher.io/)
+Use [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) or [etcher](https://www.balena.io/etcher/)
 
 # Enable ssh
 **Create a file named `ssh` on the root folder**
