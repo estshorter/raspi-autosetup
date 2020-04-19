@@ -9,12 +9,12 @@
 - Network: dhcp, wired lan
 - Write the raspbian image on Windows
 
-# Download image
+# Download Raspbian image
 Mirror on Japan
 - http://ftp.jaist.ac.jp/pub/raspberrypi/raspbian_lite/images/
 - https://www.raspbian.org/RaspbianMirrors
 
-# Write image
+# Write Raspbian image
 Use [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) or [etcher](https://www.balena.io/etcher/)
 
 # Enable ssh
