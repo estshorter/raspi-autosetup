@@ -22,7 +22,7 @@ Use [Raspberry Pi Imager](https://www.raspberrypi.org/downloads/) or [etcher](ht
 - user: pi
 - pass: raspberry
 
-# Minimum raspbian setting for Music
+# Minimum Raspbian setting for Music
 ## Setting overview
 The following are configured automatically.
 - **Build the latest alsa-lib, libflac, mpg123, FDK-AAC, FFmpeg and MPD with optimization options for Raspberry Pi 3**
