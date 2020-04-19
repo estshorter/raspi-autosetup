@@ -241,7 +241,7 @@ dtoverlay=pi3-act-led,activelow=on"
 	# Ref: http://nw-electric.way-nifty.com/blog/2016/08/mpdpi-2-pi-3-5a.html
 	# Ref: https://github.com/MusicPlayerDaemon/MPD/blob/master/doc/user.xml
 	sudo wget https://raw.githubusercontent.com/estshorter/raspi-autosetup/master/mpd.conf -O /usr/local/etc/mpd.conf # Get mpd.conf
-	sudo apt -y install libid3tag0-dev libboost-dev libicu-dev libsystemd-dev
+	sudo apt -y install libid3tag0-dev libboost-dev libicu-dev libsystemd-dev ninja-build meson
 	
 	mkdir mpd
 	cd mpd
@@ -269,8 +269,6 @@ ExecStartPre=/bin/chown -R mpd:audio /var/run/mpd
 	cd ../../
 
 	# Build libmpdclient
-	sudo apt -y install ninja-build meson 
-
 	mkdir libmpdclient
 	cd libmpdclient
 	wget https://www.musicpd.org/download/libmpdclient/2/libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
