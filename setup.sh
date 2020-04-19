@@ -248,11 +248,13 @@ dtoverlay=pi3-act-led,activelow=on"
 	wget "https://www.musicpd.org/download/mpd/${MPD_MAJOR_VER}/mpd-${MPD_VER}.tar.xz"
 	tar xf "mpd-${MPD_VER}.tar.xz"
 	cd "./mpd-${MPD_VER}"
-	MPD_OPTIONS="--disable-un --disable-fifo --disable-httpd-output --disable-recorder-output --disable-oss --disable-ipv6 --disable-dsd --disable-libmpdclient --disable-curl --with-systemdsystemunitdir=/lib/systemd/system"
-	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" ${MPD_OPTIONS}
-	make -j4
-	strip ./src/mpd
-	sudo make install
+	MPD_OPTIONS="-Dfifo=false -Dhttpd=false -Drecorder=false -Dipv6=disabled -Ddsd=false -Dlibmpdclient=disabled -Dcurl=disabled -Dsystemd_system_unit_dir=/lib/systemd/system"	./configure CFLAGS="${OPT}" CXXFLAGS="${OPT}" ${MPD_OPTIONS}
+	# intentionally specify "--buildtype=plain"
+	CFLAGS="${OPT}" CXXFLAGS="${OPT}" meson . output/release --buildtype=plain -Db_ndebug=true
+	meson configure output/release ${MPD_OPTIONS}
+	ninja -C output/release
+	strip ./output/release/mpd
+	sudo ninja -C output/release install
 	# Change owner of /var/run/mpd when starting mpd
 	# Specify high priority to MPD tasks
 	# Ref: https://qiita.com/s-yama/items/2d6d7964ac39b08d925e
@@ -274,7 +276,7 @@ ExecStartPre=/bin/chown -R mpd:audio /var/run/mpd
 	wget https://www.musicpd.org/download/libmpdclient/2/libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	tar Jxf libmpdclient-${LIBMPDCLIENT_VER}.tar.xz
 	cd libmpdclient-${LIBMPDCLIENT_VER}
-	CFLAGS="${OPT}" meson . output
+	CFLAGS="${OPT}" CXXFLAGS="${OPT}" meson . output
 	ninja -C output
 	sudo ninja -C output install
 	sudo ldconfig
