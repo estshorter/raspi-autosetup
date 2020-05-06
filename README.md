@@ -30,7 +30,7 @@ The following are configured automatically.
 - Provide cover art via http using nginx
 - Scrobble to last.fm using mpdas
 - Disable swap, HDMI, Wi-Fi, Bluetooth, UART, onboard audio, usb-power and unnecessary service
-- Disable the red and green led
+- Disable the red and green leds
 - Put temp and log files to RAM disk
 - Decrease GPU assigned memory
 - Suppress rsyslog and nginx output
