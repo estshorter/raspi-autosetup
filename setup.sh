@@ -12,8 +12,6 @@ FDK_AAC_VER=2.0.1
 FFMPEG_VER=4.2.2
 
 LIBMPDCLIENT_VER=2.18
-#OPENSSL_VER=1.1.0g
-#CURL_VER=7.58.0
 MPDAS_VER=0.4.5
 
 # Optimization option for Raspberry Pi 3
@@ -281,35 +279,8 @@ ExecStartPre=/bin/chown -R mpd:audio /var/run/mpd
 	sudo ninja -C output install
 	sudo ldconfig
 	cd ../../
-
-	# Build openssl
-	#mkdir openssl
-	#cd openssl
-	#wget https://www.openssl.org/source/openssl-${OPENSSL_VER}.tar.gz
-	#tar xf openssl-${OPENSSL_VER}.tar.gz
-	#cd openssl-${OPENSSL_VER}
-	#./config zlib shared no-ssl3
-	#make -j4
-	#sudo make install
-	#cd ../../
-
-	## Build curl
-	# Ref: https://qiita.com/kb10uy/items/976a52f687bcb7745fc7
-	# sudo apt -y install libssl-dev
-
-	#mkdir curl
-	#cd curl
-	#wget https://curl.haxx.se/download/curl-${CURL_VER}.tar.bz2
-	#tar xf curl-${CURL_VER}.tar.bz2
-	#cd curl-${CURL_VER}
-	#./configure --with-ssl --with-zlib CFLAGS="${OPT}"
-	#make -j4
-	#sudo make install
-	#sudo ldconfig
-	#cd ../../
 	
 	# Build mpdas for scrobbling to last.fm
-	#sudo apt -y install libcurl4-gnutls-dev libmpdclient-dev
 	sudo apt -y install libcurl4-gnutls-dev
 	mkdir mpdas
 	cd mpdas
