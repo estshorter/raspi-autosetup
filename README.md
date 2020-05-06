@@ -106,16 +106,16 @@ For SD card
 `sudo rpi-update`
 
 ## Install upmpdcli
-Create and edit `/etc/apt/sources.list.d/upmpdcli.list` and add the following lines.
-```
-deb http://www.lesbonscomptes.com/upmpdcli/downloads/raspbian-stretch/ stretch main
-deb-src http://www.lesbonscomptes.com/upmpdcli/downloads/raspbian-stretch/ stretch main
-```
-Setup:
+
 ```bash
-sudo apt -y install dirmngr
-gpg --keyserver pool.sks-keyservers.net --recv-key 'F8E3 3472 5692 2A8A E767 605B 7808 CE96 D38B 9201'
+wget https://www.lesbonscomptes.com/pages/jf-at-dockes.org.pgp
+gpg --import ./jf-at-dockes.org.pgp
 gpg --export '7808CE96D38B9201' | sudo apt-key add -
+UPMPDCLI_APT="deb http://www.lesbonscomptes.com/upmpdcli/downloads/raspbian/ buster main
+deb-src http://www.lesbonscomptes.com/upmpdcli/downloads/raspbian/ buster main"
+echo "$UPMPDCLI_APT" | sudo tee /etc/apt/sources.list.d/upmpdcli.list > /dev/null
 sudo apt -y update
 sudo apt -y install upmpdcli
 ```
+
+See https://www.lesbonscomptes.com/upmpdcli/downloads.html
